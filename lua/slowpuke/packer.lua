@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
   use('ThePrimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-commentary')
+  -- use('RRethy/vim-illuminate')
   use('itmammoth/doorboy.vim')
   use('jbgutierrez/vim-better-comments') -- doesnt seem to work, i think, if it doesnt find an alternative
 
