@@ -18,6 +18,9 @@ return require('packer').startup(function(use)
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('ThePrimeagen/harpoon')
   use('mbbill/undotree')
+  use('tpope/vim-commentary')
+  use('itmammoth/doorboy.vim')
+  use('jbgutierrez/vim-better-comments') -- doesnt seem to work, i think, if it doesnt find an alternative
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',
