@@ -15,8 +15,14 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
+vim.opt.cursorline = true
+
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+
+vim.opt.scrolloff = 16
+vim.opt.signcolumn = "yes"
+vim.opt.isfname:append("@-@")
 
 vim.opt.termguicolors = true
 
