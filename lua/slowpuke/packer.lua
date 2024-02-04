@@ -1,6 +1,3 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
@@ -9,7 +6,6 @@ return require('packer').startup(function(use)
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
-        -- or                            , branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
@@ -19,11 +15,13 @@ return require('packer').startup(function(use)
     use('ThePrimeagen/harpoon')
     use('mbbill/undotree')
     use('tpope/vim-commentary')
-    -- use('RRethy/vim-illuminate')
     use('tzachar/local-highlight.nvim')
     use('itmammoth/doorboy.vim')
-    -- use('jbgutierrez/vim-better-comments') -- doesnt seem to work, i think, if it doesnt find an alternative
     use('Djancyp/better-comments.nvim')
+    -- this changes the color of the cursor, maybe in the future
+    -- use('mvllow/modes.nvim')
+    -- for now a todo tree is not necessary, but if you need one in the future
+    -- use('folke/todo-comments.nvim')
 
     use {
         'VonHeikemen/lsp-zero.nvim',
