@@ -14,7 +14,13 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
     -- Replace the language servers listed here 
     -- with the ones you want to install
-    ensure_installed = {'clangd', 'rust_analyzer', 'pylsp'},
+    ensure_installed = {
+        'clangd',
+        'rust_analyzer',
+        'pylsp',
+        'als',
+        -- 'hls', -- for some reason haskell doesnt want to work...
+    },
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
