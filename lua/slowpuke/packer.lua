@@ -18,6 +18,10 @@ return require('packer').startup(function(use)
     use('tzachar/local-highlight.nvim')
     use('itmammoth/doorboy.vim')
     use('Djancyp/better-comments.nvim')
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
     -- this changes the color of the cursor, maybe in the future
     -- use('mvllow/modes.nvim')
     -- for now a todo tree is not necessary, but if you need one in the future
@@ -38,5 +42,7 @@ return require('packer').startup(function(use)
             {'L3MON4D3/LuaSnip'},
         }
     }
+
+    use('cxxxr/cl-lsp')
 
 end)

@@ -10,16 +10,29 @@ lsp_zero.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
 end)
 
+-- config for a custom server for common lisp, i have no idea what im doing though
+-- lsp_zero.new_client({
+--   name = 'common_lisp',
+--   cmd = {'common_lisp'},
+--   filetypes = {'.lisp'},
+--   root_dir = function()
+--     return lsp_zero.dir.find_first({'some-config-file'})
+--   end
+-- })
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
     -- Replace the language servers listed here 
     -- with the ones you want to install
     ensure_installed = {
+        'als',      -- ada core
+        'bashls',
         'clangd',
-        'rust_analyzer',
+        -- 'hls',   -- haskell
+        'lua_ls',
+        -- 'rnix',
         'pylsp',
-        'als',
-        -- 'hls', -- for some reason haskell doesnt want to work...
+        'rust_analyzer',
     },
     handlers = {
         lsp_zero.default_setup,
@@ -56,7 +69,9 @@ cmp.setup({
 
 lsp_zero.set_sign_icons({
     error = '✘',
-    warn = '▲',
-    hint = '⚑',
-    info = '»'
+    -- warn = '▲',
+    warn = "‼",
+    -- hint = '⚑',
+    hint = '☛',
+    info = '»',
 })
