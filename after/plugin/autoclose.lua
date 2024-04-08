@@ -6,5 +6,8 @@ require("autoclose").setup({
         pair_spaces = true,
         auto_indent = true,
         disable_command_mode = false,
+    },
+    keys = {
+        ["|"] = { escape = false, close = true, pair = "||" },
     }
 })
