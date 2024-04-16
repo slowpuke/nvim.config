@@ -28,6 +28,7 @@ local plugins = {
     'tzachar/local-highlight.nvim',
     'm4xshen/autoclose.nvim',
     'Djancyp/better-comments.nvim',
+    'mg979/vim-visual-multi',
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' }
