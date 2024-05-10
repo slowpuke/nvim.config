@@ -1,1 +1,2 @@
-require("slowpuke")
+require("slowpuke.core")
+require("slowpuke.lazy")
