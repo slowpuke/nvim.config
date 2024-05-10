@@ -1,7 +1,7 @@
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    congif = function()
+    config = function()
         require('lualine').setup {
             options = {
                 icons_enabled = true,
