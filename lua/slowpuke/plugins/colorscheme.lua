@@ -5,7 +5,10 @@ return {
             styles = {
                 bold = true,
                 italic = false,
-            }
+            },
+            colors = {
+                bg = "#0E0C15",
+            },
         })
         vim.cmd.colorscheme("darkrose")
     end
