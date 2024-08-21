@@ -31,12 +31,14 @@ return {
                 ensure_installed = {
                     'als',      -- ada core
                     'bashls',
-                    'clangd',
+                    -- 'clangd',
                     -- 'hls',   -- haskell
                     'lua_ls',
                     -- 'rnix',
                     -- 'pylsp',
+                    -- 'phpactor',
                     'rust_analyzer',
+                    -- 'gdscript',
                 },
                 handlers = {
                     lsp_zero.default_setup,
@@ -44,15 +46,22 @@ return {
                         local lua_opts = lsp_zero.nvim_lua_ls()
                         require('lspconfig').lua_ls.setup(lua_opts)
                     end,
+                    -- clangd didnt work by putting it here, maybe move rust_analyzer down to where
+                    -- clangd is, and maybe just move everything there, maybe gdscript will work as well
                     rust_analyzer = function ()
                         require('lspconfig').rust_analyzer.setup({
                             completion = {
                                 autoimport = false,
                             },
                         })
-                    end
+                    end,
                 },
             })
+
+            require'lspconfig'.clangd.setup{}
+            require'lspconfig'.hls.setup{}
+            require'lspconfig'.gdscript.setup{}
+            require'lspconfig'.wgsl_analyzer.setup{}
 
             local cmp = require('cmp')
             local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -63,9 +72,9 @@ return {
                     documentation = cmp.config.window.bordered(),
                 },
                 sources = {
-                    {name = 'path'},
-                    {name = 'nvim_lsp'},
                     {name = 'nvim_lua'},
+                    {name = 'nvim_lsp'},
+                    {name = 'path'},
                     {name = 'luasnip', keyword_length = 2},
                     {name = 'buffer', keyword_length = 3},
                 },
@@ -80,13 +89,10 @@ return {
 
             lsp_zero.set_sign_icons({
                 error = '✘',
-                -- warn = '▲',
                 warn = "‼",
-                -- hint = '⚑',
                 hint = '☛',
                 info = '»',
             })
-
 
         end
     },
