@@ -27,6 +27,7 @@ return {
         require('cmp').setup.filetype({'lisp'}, {
             sources = {
                 { name = 'nvlime' },
+                { name = 'buffer', keyword_length = 3}
             },
         })
     end

@@ -29,14 +29,15 @@ return {
             require('mason').setup({})
             require('mason-lspconfig').setup({
                 ensure_installed = {
-                    'als',      -- ada core
+                    'als',
                     'bashls',
                     -- 'clangd',
-                    -- 'hls',   -- haskell
+                    'cobol_ls',
+                    -- 'hls',
                     'lua_ls',
+                    -- 'jdtls',
                     -- 'rnix',
                     -- 'pylsp',
-                    -- 'phpactor',
                     'rust_analyzer',
                     -- 'gdscript',
                 },
@@ -58,10 +59,10 @@ return {
                 },
             })
 
+            -- require'lspconfig'.cobol_ls.setup{}
             require'lspconfig'.clangd.setup{}
-            require'lspconfig'.hls.setup{}
-            require'lspconfig'.gdscript.setup{}
-            require'lspconfig'.wgsl_analyzer.setup{}
+            require'lspconfig'.jdtls.setup{}
+            -- require'lspconfig'.gdscript.setup{}
 
             local cmp = require('cmp')
             local cmp_select = {behavior = cmp.SelectBehavior.Select}
