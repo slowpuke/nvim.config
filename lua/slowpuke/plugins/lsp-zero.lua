@@ -18,7 +18,6 @@ return {
 
             lsp_zero.on_attach(function(client, bufnr)
                 local opts = {buffer = bufnr, remap = false}
-
                 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
                 vim.keymap.set("n", "<C-i>", function() vim.lsp.buf.hover() end, opts)
                 vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
@@ -29,40 +28,55 @@ return {
             require('mason').setup({})
             require('mason-lspconfig').setup({
                 ensure_installed = {
-                    'als',
                     'bashls',
-                    -- 'clangd',
+                    'clangd',
                     'cobol_ls',
-                    -- 'hls',
                     'lua_ls',
-                    -- 'jdtls',
-                    -- 'rnix',
-                    -- 'pylsp',
+                    -- 'nil_ls',
+                    'racket_langserver',
                     'rust_analyzer',
-                    -- 'gdscript',
                 },
                 handlers = {
                     lsp_zero.default_setup,
                     lua_ls = function()
                         local lua_opts = lsp_zero.nvim_lua_ls()
-                        require('lspconfig').lua_ls.setup(lua_opts)
-                    end,
-                    -- clangd didnt work by putting it here, maybe move rust_analyzer down to where
-                    -- clangd is, and maybe just move everything there, maybe gdscript will work as well
-                    rust_analyzer = function ()
-                        require('lspconfig').rust_analyzer.setup({
-                            completion = {
-                                autoimport = false,
+                        require('lspconfig').lua_ls.setup({
+                            settings = {
+                                Lua = {
+                                    diagnostics = {
+                                        globals = {
+                                            'vim',
+                                        },
+                                    },
+                                    workspace = {
+                                        library = vim.api.nvim_get_runtime_file("", true),
+                                    },
+                                    telemetry = {
+                                        enable = false,
+                                    },
+                                },
                             },
                         })
                     end,
+                    require'lspconfig'.rust_analyzer.setup({
+                        settings = {
+                            ['rust_analyzer'] = {
+                                completion = {
+                                    autoimport = false
+                                }
+                            }
+                        }
+                    })
                 },
             })
 
+            -- require'lspconfig'.lua_ls.setup{}
+            -- require'lspconfig'.bashls.setup{}
+            -- require'lspconfig'.clangd.setup{}
+            -- require'lspconfig'.rust_analyzer.setup{}
             -- require'lspconfig'.cobol_ls.setup{}
-            require'lspconfig'.clangd.setup{}
-            require'lspconfig'.jdtls.setup{}
-            -- require'lspconfig'.gdscript.setup{}
+            -- require'lspconfig'.nil_ls.setup{}
+            -- require'lspconfig'.racket_langserver.setup{}
 
             local cmp = require('cmp')
             local cmp_select = {behavior = cmp.SelectBehavior.Select}

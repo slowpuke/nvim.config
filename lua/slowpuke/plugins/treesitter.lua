@@ -3,7 +3,7 @@ return {
     build = ":TSUpdate",
     config = function ()
         require'nvim-treesitter.configs'.setup {
-            ensure_installed = { "ada", "bash", "c", "commonlisp", "haskell", "lua", "nix", "query", "python", "rust", "vim", "wgsl" },
+            ensure_installed = { "ada", "bash", "c", "commonlisp", "haskell", "lua", "nix", "query", "python", "racket", "rust", "vim", "wgsl" },
 
             sync_install = false,
 

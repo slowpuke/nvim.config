@@ -8,7 +8,7 @@ return {
             },
             colors = {
                 -- #0E0C15 is for kitty Floraverse
-                bg = "#0E0C15",
+                -- bg = "#0E0C15",
             },
         })
         vim.cmd.colorscheme("darkrose")
