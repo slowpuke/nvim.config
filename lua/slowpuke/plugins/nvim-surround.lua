@@ -6,9 +6,3 @@ return {
         require("nvim-surround").setup({})
     end
 }
-
--- [[
--- ysiw) surround word
--- ds] delete around me
--- cs'" change quotes
--- ]]
